@@ -205,9 +205,15 @@ pub fn main() !void {
     };
 
     for (numbers) |number| {
-        for (numbers) |n| {
-            if (number + n == 2020) {
-                std.debug.print("{}\n", .{(number *% n)});
+        for (numbers) |num| {
+            if (number + num == 2020) {
+                std.debug.print("{}\n", .{(number *% num)});
+            }
+
+            for (numbers) |n| {
+                if (number + num + n == 2020) {
+                    std.debug.print("{}\n", .{(number *% num *% n)});
+                }
             }
         }
     }
