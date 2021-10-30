@@ -1,7 +1,7 @@
 const std = @import("std");
 
 pub fn main() !void {
-    var numbers = [_]u32{
+    var numbers = [_]u16{
         1411,
         1802,
         1773,
@@ -205,15 +205,9 @@ pub fn main() !void {
     };
 
     for (numbers) |number| {
-        for (numbers) |num| {
-            if (number + num == 2020) {
-                std.debug.print("{}\n", .{(number *% num)});
-            }
-
-            for (numbers) |n| {
-                if (number + num + n == 2020) {
-                    std.debug.print("{}\n", .{(number *% num *% n)});
-                }
+        for (numbers) |n| {
+            if (number + n == 2020) {
+                std.debug.print("{}\n", .{(number *% n)});
             }
         }
     }
