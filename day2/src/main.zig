@@ -64,16 +64,17 @@ pub fn main() anyerror!void {
 
         password.password = line_buf[0..k];
 
-        var l: usize = 0;
         var letter_count: usize = 0;
 
-        while (l < password.password.len) : (l += 1) {
-            if (password.password[l] == password.letter) {
-                letter_count += 1;
-            }
+        if (password.password[password.min - 1] == password.letter) {
+            letter_count += 1;
         }
 
-        if (letter_count >= password.min and letter_count <= password.max) {
+        if (password.password[password.max - 1] == password.letter) {
+            letter_count += 1;
+        }
+
+        if (letter_count == 1) {
             valid += 1;
         }
     }
