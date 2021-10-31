@@ -18,9 +18,6 @@ pub fn main() anyerror!void {
     var in_stream = buf_reader.reader();
     var buf: [1024]u8 = undefined;
 
-    var arena = ArenaAllocator.init(std.heap.page_allocator);
-    defer arena.deinit();
-
     var i: usize = 0;
 
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
